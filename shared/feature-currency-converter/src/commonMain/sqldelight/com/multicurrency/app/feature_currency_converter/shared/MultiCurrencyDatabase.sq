@@ -1,0 +1,32 @@
+CREATE TABLE CurrencyEntity (
+    currencySymbol TEXT NOT NULL PRIMARY KEY,
+    currencyName TEXT NOT NULL
+);
+
+insertCurrency:
+INSERT OR REPLACE INTO CurrencyEntity(currencySymbol,currencyName)
+VALUES (?,?);
+
+fetchAllCurrencies:
+SELECT * FROM CurrencyEntity;
+
+deleteAllCurrencies:
+DELETE FROM CurrencyEntity;
+
+CREATE TABLE RateEntity(
+    currencySymbol TEXT NOT NULL PRIMARY KEY,
+    rate REAL NOT NULL
+);
+
+insertRate:
+INSERT OR REPLACE INTO RateEntity(currencySymbol,rate)
+VALUES (?,?);
+
+deleteAllRates:
+DELETE FROM RateEntity;
+
+fetchAllRates:
+SELECT * FROM RateEntity;
+
+fetchDollarRateForCurrency:
+SELECT * FROM RateEntity WHERE currencySymbol = ?;
